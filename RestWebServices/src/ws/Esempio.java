@@ -1,3 +1,4 @@
+package ws;
 import java.io.StringReader;
 import java.util.ArrayList;
 
@@ -15,8 +16,8 @@ import javax.ws.rs.core.MediaType;
 public class Esempio {
 	/**
 	 * Restituisce del testo normale
-	 * http://localhost:8080/RestWebServices/rest/esempio/testo
-	 * @return
+	 * <a href="/RestWebServices/rest/esempio/testo">qui</a>
+	 * @return a String
 	 */
 	@GET
 	@Path("testo")
@@ -69,7 +70,7 @@ public class Esempio {
 	/**
 	 * Restituisce un testo html
 	 * http://localhost:8080/RestWebServices/rest/esempio/html
-	 * @return
+	 * @return am html snippet
 	 */
 	@GET
 	@Path("html")
@@ -81,7 +82,7 @@ public class Esempio {
 	/**
 	 * Riceve un json e lo stampa
 	 * http://localhost:8080/RestWebServices/rest/esempio/post
-	 * @param uno
+	 * @param uno input post data
 	 * @return una stringa tanto per restituire qualcosa
 	 */
 	@POST
