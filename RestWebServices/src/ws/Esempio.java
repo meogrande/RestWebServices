@@ -26,6 +26,10 @@ public class Esempio {
 		return "Ciao Mondo";
 	}
 
+	/**
+	 * 
+	 * @return Restituisce un xml di prova
+	 */
 	@GET
 	@Path("xml")
 	@Produces(MediaType.TEXT_XML)
@@ -33,6 +37,11 @@ public class Esempio {
 		return "<ciao>Ciao Mondo</ciao>";
 	}
 
+	/**
+	 * Restituisce un xml generato automaticamente da un oggetto "Persona" con nome e cognome <br>
+	 * 
+	 * @return
+	 */
 	@GET
 	@Path("persona")
 	@Produces(MediaType.TEXT_XML)
@@ -41,12 +50,17 @@ public class Esempio {
 		return new Persona("fabio", "biscaro");
 	}
 
+	/**
+	 * <Restituisce una stringa json generata automaticamente da un oggetto java
+	 * <br><a href="/RestWebServices/rest/esempio/jsonpersona">prova</a>
+	 * @return una strina json
+	 */
 	@GET
 	@Path("jsonpersona")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Persona jsonPersona() {
 		// return "<ciao>Ciao Mondo</ciao>";
-		return new Persona("fabio", "biscaro");
+		return new Persona("Andrea", "Rossi");
 	}
 
 	@GET
@@ -55,21 +69,24 @@ public class Esempio {
 	public ArrayList<Persona> persone() {
 		// return "<ciao>Ciao Mondo</ciao>";
 		ArrayList<Persona> persone = new ArrayList<Persona>();
-		persone.add(new Persona("fabio", "biscaro"));
-		persone.add(new Persona("giulio", "biscaro"));
+		persone.add(new Persona("Andrea", "Rossi"));
+		persone.add(new Persona("Mario", "Rossi"));
 		return persone;
 	}
 
+	/**
+	 * <a href="/RestWebServices/rest/esempio/json">Restituisce una stringa json</a>
+	 * @return una stringa json di prova
+	 */
 	@GET
 	@Path("json")
 	@Produces(MediaType.APPLICATION_JSON)
 	public String json() {
-		return "{\"age\":10}";
+		return "{\"age\":10, \"name\":\"fabio\", \"address\": {\"street\":\"roma\", \"number\":7}}";
 	}
 
 	/**
-	 * Restituisce un testo html
-	 * http://localhost:8080/RestWebServices/rest/esempio/html
+	 * <a href="/RestWebServices/rest/esempio/html">Restituisce un testo html</a>
 	 * @return am html snippet
 	 */
 	@GET
@@ -80,7 +97,7 @@ public class Esempio {
 	}
 
 	/**
-	 * Riceve un json e lo stampa
+	 * <a href="http://RestWebServices/rest/esempio/post">Riceve un json e lo stampa</a>
 	 * http://localhost:8080/RestWebServices/rest/esempio/post
 	 * @param uno input post data
 	 * @return una stringa tanto per restituire qualcosa
@@ -112,7 +129,7 @@ public class Esempio {
 			}
 		}
 		parser.close();
-		return "ciao";
+		return "Hai inviato con successo: " + uno;
 	}
 
 }
